@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.OrderProductDao">
+    <insert id="insertOrderProduct" parameterType="OrderProduct">
+        insert into order_product
+        (order_id,product_id)
+        values (#{orderId},#{productId})
+    </insert>
+    <select id="getOrders" parameterType="String" resultType="OrdersInfo">
+        select userorder.order_id,product.product_name,userorder.order_payment_amount,
+        userorder.order_logistics,userorder.order_status,userorder.order_comment
+        from product,order_product,userorder
+        where product.product_id=order_product.product_id
+        and userorder.order_id=order_product.order_id
+        and order_user_id=#{userId}
+    </select>
+    <select id="getOrdersByShop" parameterType="String" resultType="OrdersInfo">
+        select userorder.order_id,userorder.order_payment_amount,userorder.order_createtime,
+        userorder.order_user_address,userorder.order_logistics,userorder.order_status,product.product_name
+        from product,userorder,order_product
+        where product_user_id=#{userId}
+        and product.product_id=order_product.product_id
+        and userorder.order_id=order_product.order_id
+    </select>
+</mapper>

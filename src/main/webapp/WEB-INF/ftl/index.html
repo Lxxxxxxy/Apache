@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阿佩奇商城</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/Apache/resources/images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Apache/resources/css/bootstrap/bootstrap.min.css">
+    <script src="/Apache/resources/js/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/Apache/resources/js/bootstrap/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, sans, 'Arial';
+            -webkit-font-smoothing: antialiased;
+            background-color: #EFF2F7;
+            color: #324057;
+
+        }
+
+        .goods-type {
+            width: 100%;
+
+
+        }
+
+        .goods-type li {
+            transition: all .2s linear;
+            text-align: center;
+
+        }
+
+        .goods-type li:not(.title):hover {
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .banner {
+
+            width: 100%;
+
+        }
+
+        .banner img {
+            width: 800px;
+            height: 500px;
+        }
+
+        .flash-deal-row {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: rgba(233, 30, 90, 0.01);
+        }
+
+        .bgwite {
+            background: white;
+        }
+
+        .flash-deal {
+            padding-top: 50px;
+            height: 200px;
+            background: #C2185B;
+            color: white;
+            text-align: center;
+        }
+
+        .flash-deal h3 {
+            text-overflow: ellipsis;
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        .flash-deal-good {
+            transition: all .2s linear;
+            border-radius: 3px;
+            background: white;
+            margin-top: 3px;
+            padding-top: 10px;
+            font-size: 12px;
+            text-align: center;
+            border: 1px solid #C2185B;
+            height: 200px;
+            text-overflow: ellipsis;
+            margin-bottom: 3px;
+        }
+
+        .flash-deal-good:hover {
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 1px 5px #C2185B;
+
+        }
+
+        .flash-deal-good .flash-deal-price {
+            margin: 10px 5px 10px 5px;
+            box-sizing: border-box;
+            border: 1px solid #C2185B;
+        }
+
+        .flash-deal-good span:nth-child(1) {
+            background: #C2185B;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .flash-deal-good span:nth-child(2) {
+            color: #666;
+            font-size: 15px;
+
+        }
+
+        .serach {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        a.redStrikeHover:link {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<script src="/Apache/resources/header/header.js" id="header" url="/Apache/resources/header/"></script>
+<!--   以上导航条        -->
+<div class="container" id="form">
+    <div class="row bgwite">
+        <!--        分类-->
+        <div class="col-lg-4 col-md-3">
+            <div class="row ">
+
+                <div class="goods-type container">
+
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-info title col-lg-12 col-md-12 col-xs-12 bigCategory">
+                        </li>
+                        <li class="list-group-item list-group-item-info title col-lg-12 col-md-12 col-xs-12 bigCategory">
+                        </li>
+                        <li class="list-group-item list-group-item-info title col-lg-12 col-md-12 col-xs-12 bigCategory">
+                        </li>
+                        <li class="list-group-item list-group-item-info title col-lg-12 col-md-12 col-xs-12 bigCategory">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!--        轮播图-->
+        <div class="col-lg-8 col-md-9" id="carousel">
+            <div class="row serach">
+                <div class="input-group">
+                    <input type="text" id="searchContent" autofocus="autofocus" class="form-control" placeholder="检索商品">
+                    <div class="input-group-btn">
+                        <button id="search" class="btn btn-success" style="padding-left: 50px;padding-right: 50px">搜索
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row flash-deal-row bgwite">
+        <div class="col-lg-2 col-md-3">
+            <div class="flash-deal">
+                <h2>商品推荐</h2>
+                <h3>PRODUCT-LIST</h3>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9">
+            <div class="row" id="ms">
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!--&lt;!&ndash;加载商品列表组件&ndash;&gt;-->
+<!--<div class="container">-->
+<!--<div class="row bgwite">-->
+<!--<script src="/Apache/resources/goods/goods.js" url="/Apache/resources/goods/" id="goods"></script>-->
+<!--</div>-->
+
+
+<!--</div>-->
+
+
+<!--   以上中间内容        -->
+
+
+<script src="/Apache/resources/footer/footer.js" url="/Apache/resources/footer/" id="footer"></script>
+<script src="/Apache/resources/js/index.js"></script>
+<script src="/Apache/resources/js/common/jquery.cookie.js"></script>
+</body>
+</html>

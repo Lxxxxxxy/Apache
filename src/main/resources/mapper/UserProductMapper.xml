@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.UserProductDao">
+    <select id="getProductList" parameterType="String" resultType="Product">
+        select * from product
+        where product_user_id=#{userId}
+    </select>
+    <insert id="putProduct" parameterType="Product">
+        insert into product
+        (product_user_id,product_name,
+        product_oldprice,product_nowprice,product_remaining,
+        product_category,product_image,product_desc)
+        values(#{productUserId},#{productName},
+        #{productOldprice},#{productNowprice},#{productRemaining},
+        #{productCategory},#{productImage},#{productDesc})
+    </insert>
+    <delete id="deleteProduct" parameterType="String">
+        delete from product
+        where product_id=#{productId}
+    </delete>
+    <select id="getIndexProduct" parameterType="Random" resultType="Product">
+        select * from product where product_id in (#{a1},#{a2},#{a3},#{a4},#{a5},#{a6},#{a7})
+    </select>
+    <select id="getIndexCarouselProduct" parameterType="Random" resultType="Product">
+        select * from product where product_id in (#{a1},#{a2},#{a3},#{a4},#{a5})
+    </select>
+    <select id="getProductById" parameterType="String" resultType="Product">
+        select * from product
+        where product_id=#{productId}
+    </select>
+    <select id="getProductListByCategory" parameterType="Integer" resultType="Product">
+        select * from product
+        where product_category=#{CategoryId}
+    </select>
+    <select id="getProductListBySearch" parameterType="String" resultType="Product">
+        select * from product
+        where product_name like '%${productName}%'
+    </select>
+    <select id="getShopNameByProductUserId" parameterType="String" resultType="Shop">
+        select shop_name from shop
+        where shop_user_id=#{shopUserId}
+    </select>
+    <update id="updateRemaining" parameterType="Product">
+        update product set
+        product_remaining=product_remaining-#{productRemaining} where product_id = #{productId}
+    </update>
+    <select id="getCountProduct" resultType="Integer">
+        select count(product_id) from product
+    </select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.CommentProductDao">
+    <select id="getProductId" parameterType="String" resultType="Integer">
+        select product_id from order_product
+        where order_id=#{orderId}
+    </select>
+    <select id="getUserId" parameterType="String" resultType="String">
+        select order_user_id from userorder
+        where order_id=#{orderId}
+    </select>
+    <insert id="insertComment" parameterType="Comment" useGeneratedKeys="true" keyProperty="commentId">
+        insert into comment
+        (comment_detail,comment_user_id)
+        values(#{commentDetail},#{commentUserId})
+    </insert>
+    <insert id="insertCommentProduct" parameterType="CommentProduct">
+        insert into comment_product
+        (comment_id,product_id)
+        values(#{commentId},#{productId})
+    </insert>
+    <update id="updateOrderComment" parameterType="String">
+        update userorder set
+        order_comment=1
+        where order_id=#{orderId}
+    </update>
+    <select id="getCommentById" parameterType="String" resultType="Comment">
+        select * from comment,userinfo
+        where comment_id in
+        (select comment_id from comment_product where product_id=#{productId})
+        and userinfo.user_id=comment.comment_user_id
+    </select>
+</mapper>

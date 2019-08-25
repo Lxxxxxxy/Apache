@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.UserCheckDao">
+    <insert id="saveUser" parameterType="UserCheck">
+        insert into usercheck
+        values(#{userId},#{userUsername},#{userPassword})
+    </insert>
+    <select id="login" parameterType="UserCheck" resultType="UserCheck">
+        select * from usercheck where
+        user_username=#{userUsername}
+        and user_password=#{userPassword}
+    </select>
+    <update id="updatePassword" parameterType="UserCheck">
+        update usercheck set
+        user_password=#{userPassword}
+        where user_id=#{userId}
+    </update>
+</mapper>

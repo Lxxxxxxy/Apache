@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/Apache/resources/images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Apache/resources/css/bootstrap/bootstrap.min.css">
+    <script src="/Apache/resources/js/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/Apache/resources/js/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="/Apache/resources/css/product.css">
+</head>
+<body>
+
+<script src="/Apache/resources/header/header.js" id="header" url="/Apache/resources/header/"></script>
+<div class="container">
+
+        <div class="form-group">
+            <label>商品名</label>
+            <input type="text" class="form-control" autofocus="autofocus" id="productName" placeholder="商品名....">
+        </div>
+        <div class="form-group">
+            <label>商品原价</label>
+            <input type="text" class="form-control" id="productOldprice" placeholder="商品原价....">
+        </div>
+        <div class="form-group">
+            <label>商品现价</label>
+            <input type="text" class="form-control" id="productNowprice" placeholder="商品现价....">
+        </div>
+        <div class="form-group">
+            <label>商品库存</label>
+            <input type="number" class="form-control" id="productRemaining" placeholder="商品库存....">
+        </div>
+        <div class="form-group">
+            <label>商品分类</label>
+            <select id="productCategory"></select>
+        </div>
+        <div class="form-group">
+            <label>商品图片</label>
+            <input type="file" class="form-control" id="productImage" placeholder="商品图片....">
+        </div>
+        <div class="form-group">
+            <label>商品简介</label>
+            <textarea name="describe" style="width: 100%" rows="10" id="productDesc"></textarea>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="reset" class="btn btn-default btn-danger">重置</button>
+            <button class="btn btn-default btn-primary" id="add">发布</button>
+            <button class="btn btn-default btn-warning" onclick="window.location='/Apache/user'">取消</button>
+        </div>
+
+
+</div>
+<script src="/Apache/resources/footer/footer.js" id="footer" url="/Apache/resources/footer/"></script>
+
+<script src="/Apache/resources/js/common/jquery-1.11.2.min.js"></script>
+<script src="/Apache/resources/js/common/jquery.cookie.js"></script>
+<script src="/Apache/resources/js/user/product.js"></script>
+</body>
+</html>

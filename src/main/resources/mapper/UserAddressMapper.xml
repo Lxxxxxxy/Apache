@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.UserAddressDao">
+    <select id="getUserAddressList" parameterType="String" resultType="UserAddress">
+        select user_address_id,user_address_user_id,user_address_name,user_address_phone,user_address_address
+        from useraddress
+        where user_address_user_id=#{id}
+    </select>
+    <select id="getUserAddressById" parameterType="UserAddress" resultType="UserAddress">
+        select user_address_id,user_address_user_id,user_address_name,user_address_phone,user_address_address
+        from useraddress
+        where user_address_user_id=#{userAddressUserId} and user_address_id=#{userAddressId}
+    </select>
+    <update id="updateUserAddress" parameterType="UserAddress">
+        update useraddress set
+        user_address_name=#{userAddressName},
+        user_address_phone=#{userAddressPhone},
+        user_address_address=#{userAddressAddress}
+        where user_address_user_id=#{userAddressUserId} and user_address_id=#{userAddressId}
+    </update>
+    <delete id="deleteUserAddress" parameterType="UserAddress">
+        delete from useraddress
+        where user_address_user_id=#{userAddressUserId} and user_address_id=#{userAddressId}
+    </delete>
+    <insert id="insertAddress" parameterType="UserAddress">
+        insert into useraddress
+        (user_address_user_id,user_address_name,user_address_phone,user_address_address)
+        values(#{userAddressUserId},#{userAddressName},#{userAddressPhone},#{userAddressAddress})
+    </insert>
+</mapper>

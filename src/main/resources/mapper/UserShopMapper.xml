@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.UserShopDao">
+    <insert id="insertShop" parameterType="Shop">
+        insert into shop
+        (shop_user_id,shop_category,
+        shop_name,shop_desc,shop_address,
+        shop_phone,shop_image,
+        shop_createtime,shop_last_edit_time)
+        value (#{shopUserId},#{shopCategory},#{shopName},
+        #{shopDesc},#{shopAddress},#{shopPhone},#{shopImage},
+        #{shopCreatetime},#{shopLastEditTime})
+    </insert>
+    <select id="getShop" parameterType="String" resultType="Shop">
+        select * from shop where shop_user_id=#{id}
+    </select>
+    <select id="getAllShop" resultType="Shop">
+        select * from shop
+    </select>
+    <delete id="deleteShop" parameterType="Integer">
+        delete from shop where shop_id=#{shopId}
+    </delete>
+    <delete id="deleteProductByShopId" parameterType="String">
+        delete from product
+        where product_user_id=#{userId}
+    </delete>
+</mapper>

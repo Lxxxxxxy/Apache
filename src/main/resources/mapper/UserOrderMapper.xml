@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.UserOrderDao">
+    <insert id="insertOrder" parameterType="UserOrder">
+        insert into userorder
+        (order_id,order_payment_amount,order_createtime,
+        order_status,order_user_id,order_user_address)
+        values (#{orderId},#{orderPaymentAmount},#{orderCreatetime},
+        #{orderStatus},#{orderUserId},#{orderUserAddress})
+    </insert>
+    <update id="addLogistics" parameterType="UserOrder">
+        update userorder set
+        order_logistics=#{orderLogistics},order_status=2
+        where order_id=#{orderId}
+    </update>
+    <update id="confirmOrder" parameterType="String">
+        update userorder set
+        order_status=3
+        where order_id=#{orderId}
+    </update>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.ProductCategoryDao">
+    <select id="getProductCategory" resultType="ProductCategory">
+      select * from productcategory
+    </select>
+    <delete id="deleteProductCategory" parameterType="Integer">
+        delete from productcategory
+        where product_category_id=#{productCategoryId}
+    </delete>
+    <insert id="insertCategory" parameterType="ProductCategory">
+        insert into productcategory
+        (product_big_category_id,product_category_name)
+        values (#{productBigCategoryId},#{productCategoryName})
+    </insert>
+</mapper>

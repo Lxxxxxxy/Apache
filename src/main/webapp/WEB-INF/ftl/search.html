@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/Apache/resources/images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/Apache/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="/Apache/resources/js/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/Apache/resources/js/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="/Apache/resources/css/product.css">
+</head>
+<body>
+
+<script src="/Apache/resources/header/header.js" id="header" url="/Apache/resources/header/"></script>
+
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <p class="panel-title">商品列表</p>
+        </div>
+        <div class="panel-body">
+            <div class="row" id="prodictList">
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="active"><a href="#">1</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!--<div class="panel panel-success">-->
+    <!--<div class="panel-heading">-->
+    <!--<p class="panel-title">好货推荐</p>-->
+    <!--</div>-->
+    <!--<div class="panel-body">-->
+    <!--<div class="row">-->
+
+
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+</div>
+<!--       底部信息                    -->
+<script src="/Apache/resources/footer/footer.js" id="footer" url="/Apache/resources/footer/"></script>
+<script>
+    $(".product-item").click(function () {
+        alert("你选中了商品");
+        location.href = "detail.html";
+
+    });
+    $(".product-item").hover(function () {
+
+
+    });
+
+</script>
+<script src="/Apache/resources/js/search.js"></script>
+
+</body>
+</html>

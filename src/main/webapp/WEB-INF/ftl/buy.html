@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>确认订单</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/Apache/resources/images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/Apache/resources/css/bootstrap/bootstrap.min.css">
+    <script src="/Apache/resources/js/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/Apache/resources/js/bootstrap/bootstrap.min.js"></script>
+    <style>
+        .list-group-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!--头部导航栏-->
+<script src="/Apache/resources/header/header.js" id="header" url="/Apache/resources/header/"></script>
+<!--头部导航栏-->
+<div class="container">
+
+    <ul class="list-group">
+        <li class="list-group-item">收货地址
+            <div class="panel-body">
+                <div class="row">
+                    <select id="address"></select>
+                </div>
+            </div></li>
+        <li class="list-group-item">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-3 col-md-2 col-lg-2">
+                        <img src="" id="productImage" alt="">
+                    </div>
+                    <div class="col-xs-9 col-md-10 col-lg-10 text-info">
+                        <h2 id="productName">商品名称</h2>
+                        <p id="productDesc">商品描述</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            价格
+            <div class="row">
+                        <span class="pull-right" style="padding-right: 20px">￥: <span
+                                class="text-warning" id="productNowprice"></span></span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            配送方式
+            <div class="row">
+                        <span class="pull-right" style="padding-right: 20px"><span
+                                class="label label-success">快递 免邮</span></span>
+            </div>
+
+        </li>
+        <li class="list-group-item">
+            库存
+            <div class="row">
+                        <span class="pull-right" style="padding-right: 20px"><label
+                                class="badge" id="productRemaining"></label>件</span>
+            </div>
+        </li>
+        <li class="list-group-item">支付价格
+            <div class="row" style="padding-right: 20px">
+                <span class="label label-danger pull-right" id="countPrice"></span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <button class="btn btn-warning btn-block submit_order" id="addOrder">提交订单</button>
+        </li>
+    </ul>
+
+
+</div>
+
+
+<!--尾部 版权信息-->
+<script src="/Apache/resources/footer/footer.js" id="footer" url="/Apache/resources/footer/"></script>
+<!--尾部 版权信息-->
+
+
+<script src="/Apache/resources/js/common/jquery-1.11.2.min.js"></script>
+<script src="/Apache/resources/js/common/jquery.cookie.js"></script>
+<script src="/Apache/resources/js/buy.js"></script>
+</body>
+</html>
